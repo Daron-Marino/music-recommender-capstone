@@ -34,4 +34,4 @@ I'd like top use the Goodreads data to build a recommender system. I would follo
 
 ## 4. NYC Restaurant Recommender (Bonus)
 
-[FourSquare NYC Restaurant check-ins for recommender system](https://www.kaggle.com/danofer/foursquare-nyc-rest)
+[Link to Data](https://www.kaggle.com/danofer/foursquare-nyc-rest)
