@@ -2,15 +2,17 @@
 
 ---------------------------------
 
-## 1. Music Recommeder System Using Last.fm data
+## 1. Music Recommeder System Using Spotify data
 
-[description of dataset below](https://www.kdnuggets.com/2016/02/nine-datasets-investigating-recommender-systems.html)
 
-[Link to Data](https://grouplens.org/datasets/hetrec-2011/)
+[Link to Data](https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks)
 
-I'd like to build a recommender system based on Last.fm user data. I'd like to try out varying recommender systems (content-based, similarity-based, factorization), and determine which one performs best.
+I'd like to build a recommendation system based on Spotify data. There are several features tied to the dataset that can be used to build out a content-based recommendation system:
+* Artists, Acousticness, Danceability, Energy, Liveness, Popularity, etc. 
 
-I'd also like to build a Flask app that can provide recommendations based on user preference
+I'd also like to build a Flask app that can provide recommendations based on an individual's Artist or Genre preference.
+
+Reach: If possible, I'd like to somehow integrate spotify into the flask app so individuals receive links to music in the actual Spotify app along with recommendations. 
 
 -------------------------------
 
