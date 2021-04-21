@@ -3,6 +3,7 @@ body {
   color: hsl(0, 73%, 38%);
   margin-top: 5rem;
   background-image: url(images/artists.jpg);
+  opacity: 0.4;
   text-align: center;
 
 }
@@ -11,3 +12,4 @@ h1, h2, h3, h4, h5, h6 {
   color: #444;
   background-color: #000;
 }
+ 
