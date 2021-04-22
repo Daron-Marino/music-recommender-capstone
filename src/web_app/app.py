@@ -20,7 +20,7 @@ artist_agg = pd.read_csv('../../spotify-data/artist_agg.csv')
 
 # building app
 @app.route('/')
-@app.route('/home', methods=['GET', 'POST'])
+@app.route('/home') # methods=['GET', 'POST']
 def home(title='Music Recommender'):
   return render_template('home.html', title=title)
 
@@ -32,6 +32,9 @@ def about():
 def eda():
   return render_template('eda.html')
 
+@app.route('/get-recommendations')
+def recs():
+  return render_template('recs.html')
 
 
 if __name__ == "__main__":

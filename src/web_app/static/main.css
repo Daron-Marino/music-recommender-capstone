@@ -1,15 +1,26 @@
 body {
-  background: #000000;
-  color: hsl(0, 73%, 38%);
-  margin-top: 5rem;
-  background-image: url(images/artists.jpg);
-  opacity: 0.4;
-  text-align: center;
+  color: white;
+}
+.bgImage {
+  background-image: url('/images/chris-slupski.jpeg');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+/* 
+.bgArtist {
 
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: #444;
   background-color: #000;
-}
- 
+} */

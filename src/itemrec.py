@@ -1,6 +1,13 @@
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics import jaccard_score
+from scipy.spatial.distance import euclidean
 import pandas as pd
 import numpy as np
+
+
+# """ un/comment to de/activate ################################################
+
+# Using Cosine Similarity
 
 
 class ItemRecommender():
@@ -27,7 +34,7 @@ class ItemRecommender():
             self.item_names = self.similarity_df.index
 
         
-    def get_recommendations(self, item, n=5):
+    def get_recommendations(self, item, n=10):
 
         return self.item_names[self.similarity_df.loc[item].values.argsort()[-(n+1):-1]].values[::-1]
 
@@ -41,7 +48,7 @@ class ItemRecommender():
         return user_profile
 
 
-    def get_user_recommendation(self, items, n=5):
+    def get_user_recommendation(self, items, n=10):
 
         num_items = len(items)
         user_profile = self.get_user_profile(items)
@@ -49,3 +56,8 @@ class ItemRecommender():
         user_sim =  self.similarity_measure(self.item_counts, user_profile.reshape(1,-1))
 
         return self.item_names[user_sim[:,0].argsort()[-(num_items+n):-num_items]].values[::-1]
+
+
+
+######################################################################### """
+
