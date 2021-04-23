@@ -30,40 +30,17 @@
       <div class="mt-5 row text-center result">
       <h3 class="mb-3">Recommendations:</h3>
       <ul>
-      {% for item in recommendations -%}
+      {% if recommendations -%}
+        {% for artist, url in recommendations.items() -%}
       <li>
-        {{ item }}
+          <a href={{url}} target="_blank">
+          {{ artist }}
+        </a>
       </li>
-      {%- endfor %}
-      {{ alt }}
-      </ul>
-      <ul class="">
-        <!-- <li>
-          <a href="https://open.spotify.com/artist/6olE6TJLqED3rqDCT0FyPh?si=BfIobii_RwyrvEiNVADmIA" target="_blank">
-            Nirvana
-          </a>
-        </li>
-        <li>
-          <a href="https://open.spotify.com/artist/181bsRPaVXVlUKXrxwZfHK?si=cqZy9O-_RKi8C-DzmSeLzw" target="_blank">
-            Megan Thee Stallion
-          </a>
-        </li>
-        <li>
-          <a href="https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3?si=OeaEGfG0Q5GNaJe5Y2cyaA" target="_blank">
-            Harry Styles
-          </a>
-        </li>
-        <li>
-          <a href="https://open.spotify.com/artist/3kbBWco9PZ5eSQsNScwG6U?si=CJX_aPHxT7m5Ac6daU-CIQ" target="_blank">
-            Built To Spill
-          </a>
-        </li>
-        <li>
-          <a href="https://open.spotify.com/artist/0oSGxfWSnnOXhD2fKuz2Gy?si=Y71dNR4UT_uW2IFQNzm7rw" target="_blank">
-            David Bowie
-          </a>
-        </li> -->
-
+        {%- endfor %}
+      {% else -%}
+        {{ alt }}
+      {% endif %}
       </ul>
     </div>
     </div>
