@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request
 import json
 import requests
+import datetime
 import numpy as np
 import pandas as pd
 import base64
@@ -9,12 +10,18 @@ import os
 
 from  itemrec import ItemRecommender
 
+from get_token import SpotifyAPI
+
 
 
 app = Flask(__name__)
 
 
+client = SpotifyAPI()
 
+client.perform_authentication()
+
+access_token = client.access_token
 
 
 # instatiating the df and fitting to the recommender
@@ -26,11 +33,13 @@ recommender = ItemRecommender()
 
 recommender.fit(artist_agg)
 
+
+
 # building app
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
 def home(title='Music Recommender'):
-  access_token = 'BQCKMdi0Lzy80an_MIhzWgAFbJ984fxw5rM-IUcab2wt8v4OBIth_-JosR1Ki9_nkv4EjAFc0Q7tk18uAep3RTLuWzc678Xz7PFQeP-6jnnZxoQ47z77vlFx8_4rTbNHqdvZ2k-F1SGp7zI'
+  # access_token = 'BQCVX9FEUh9EmsCnI5YFDpcLev-dGU8IF0o9BRcxfD-1Vl5TgqqV8Vm30-vsyYQUNOpCNJJLfo3R37FajfDtPBtQ3iN-77ITOVRPPQJ82mGf8J-0NW_LJ2TKiq21rICOnKyvFWf8nxGlZWk'
   links = dict()
   if request.form.get('recs'):
     data1 = request.form.get('recs').split(', ')
