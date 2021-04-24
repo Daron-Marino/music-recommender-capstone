@@ -39,15 +39,20 @@ recommender.fit(artist_agg)
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
 def home(title='Music Recommender'):
-  # access_token = 'BQCVX9FEUh9EmsCnI5YFDpcLev-dGU8IF0o9BRcxfD-1Vl5TgqqV8Vm30-vsyYQUNOpCNJJLfo3R37FajfDtPBtQ3iN-77ITOVRPPQJ82mGf8J-0NW_LJ2TKiq21rICOnKyvFWf8nxGlZWk'
   links = dict()
   if request.form.get('recs'):
     data1 = request.form.get('recs').split(', ')
     out = recommender.get_user_recommendation(data1)
     # links = dict()
     for item in out:
-      json_url = requests.get("https://api.spotify.com/v1/search?q=" + item + '&type=artist&access_token=' + access_token)
-      json_url = json_url.json()
+      if not client.access_token_did_expire:
+        json_url = requests.get("https://api.spotify.com/v1/search?q=" + item + '&type=artist&access_token=' + access_token)
+        json_url = json_url.json()
+      else:
+        client.perform_authentication()
+        new_token = client.access_token
+        json_url = requests.get("https://api.spotify.com/v1/search?q=" + item + '&type=artist&access_token=' + new_token)
+        json_url = json_url.json()
       if len(json_url['artists']['items']) == 0:
           continue
       json_url = json_url['artists']['items'][0]['external_urls']['spotify']
