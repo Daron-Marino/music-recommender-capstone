@@ -25,7 +25,7 @@ access_token = client.access_token
 
 
 # instatiating the df and fitting to the recommender
-artist_agg = pd.read_csv('../../spotify-data/artist_agg.csv',
+artist_agg = pd.read_csv('static/artist_agg.csv',
                           index_col='artists')
 
 
@@ -40,7 +40,7 @@ recommender.fit(artist_agg)
 @app.route('/home', methods=['GET', 'POST'])
 def home(title='Music Recommender'):
   links = dict()
-  if request.form.get('recs'):
+  if request.form.get('recs') in artist_agg.index:
     data1 = request.form.get('recs').split(', ')
     out = recommender.get_user_recommendation(data1)
     # links = dict()
