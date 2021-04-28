@@ -43,14 +43,14 @@ def home(title='Music Recommender'):
   if request.form.get('recs') in artist_agg.index:
     data1 = request.form.get('recs').split(', ')
     out = recommender.get_user_recommendation(data1)
-    # links = dict()
     for item in out:
       if not client.access_token_did_expire:
         json_url = requests.get("https://api.spotify.com/v1/search?q=" + item + '&type=artist&access_token=' + access_token)
         json_url = json_url.json()
       else:
-        client.perform_authentication()
-        new_token = client.access_token
+        new_client = SpotifyAPI()
+        new_client.perform_authentication()
+        new_token = new_client.access_token
         json_url = requests.get("https://api.spotify.com/v1/search?q=" + item + '&type=artist&access_token=' + new_token)
         json_url = json_url.json()
       if len(json_url['artists']['items']) == 0:
