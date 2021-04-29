@@ -102,7 +102,7 @@ I tested the recommender to see how it performs when given artists from varying 
 
 ## The Flask App
 
-![app screenshot](images/appscreenshot.png)
+![app screenshot](images/flaskexample.png)
 
 The Flask app was constructed using HTML and CSS.
 
@@ -110,7 +110,15 @@ It's funcionality is relatively straightforward:
 * Type an artist in the search bar and hit enter or click the submit button.
 * Review the recommendations and decide if you'd like to check out any of the suggested artists.
 
-The app has integrated the Spotify API, so once an artist has been chosen from the recommendations, you can click on them and get routed to their spotify page. 
+The app has integrated the Spotify API, so once an artist has been chosen from the recommendations, you can click on them and get routed to their spotify page.
+
+## Recommendation Examples:
+
+![app screenshot](images/steviewonder.png)
+
+![app screenshot](images/minorthreat.png)
+
+![app screenshot](images/nas.png)
 
 
 -----------------------------------------------------
